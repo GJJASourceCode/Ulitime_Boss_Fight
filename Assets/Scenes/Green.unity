@@ -3531,7 +3531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282173754640575601, guid: e55521d1dc4c4184db47b002e9d98b96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47500217
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3282173754640575601, guid: e55521d1dc4c4184db47b002e9d98b96, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3621,6 +3621,14 @@ PrefabInstance:
       propertyPath: jumpAttackSound2
       value: 
       objectReference: {fileID: 65021721}
+    - target: {fileID: 8507542198440770119, guid: e55521d1dc4c4184db47b002e9d98b96, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507542198440770119, guid: e55521d1dc4c4184db47b002e9d98b96, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e55521d1dc4c4184db47b002e9d98b96, type: 3}
 --- !u!4 &1966951738 stripped
