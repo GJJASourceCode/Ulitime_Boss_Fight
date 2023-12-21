@@ -7,23 +7,25 @@ public class PurplePattern : MonoBehaviour
     public static bool isAttacking;
     public static int monsterHealth;
     public static int state;
+    public static bool readyfire;
     Animator anim;
     GameObject[] area;
     GameObject player;
     Rigidbody rigid;
     Vector3 currentVec;
-    bool area1, area2, lookAtPlayer, run; 
+    Vector3 backpos = new Vector3(0,0.475f,0);
+    bool area1, area2, lookAtPlayer, run,getback; 
     Quaternion rotGoal;
      // set varieties
 
     void Awake() 
     {
+        
         monsterHealth = 500;
         area = new GameObject[2];
         area[0] = GameObject.Find("Claw_collider");
         area[1] = GameObject.Find("Head_collider");
-
-         anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
         state = 0;
@@ -91,15 +93,19 @@ public class PurplePattern : MonoBehaviour
     IEnumerator fly_flame_attack()
     {
         anim.SetTrigger("take off");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(2.867f);
         //jumpAttackSound1.Play();
-        yield return new WaitForSeconds(1.2f);
-        isAttacking = true;
+        //readyfire = true;
+        getback = true;
+        
+        readyfire = true;
+        yield return new WaitForSeconds(3.267f);
         //area[2].SetActive(true);
         //jumpAttackSound2.Play();
-        yield return new WaitForSeconds(0.1f);
+        readyfire = false;
+        yield return new WaitForSeconds(3.7f);
         //area[2].SetActive(false);
-        isAttacking = false;
+        
         state = 0;
         choosePattern();
     }
@@ -174,12 +180,12 @@ public class PurplePattern : MonoBehaviour
         if (col.gameObject.name == "Area1")//바깥원
         {
             area1 = true;
-            Debug.Log("접근1");
+            //Debug.Log("접근1");
         }
         if (col.gameObject.name == "Area2")//안쪽원
         {
             area2 = true;
-            Debug.Log("접근2");
+            //Debug.Log("접근2");
         }
     }
     void OnTriggerExit(Collider col)
@@ -212,7 +218,19 @@ public class PurplePattern : MonoBehaviour
         {
             rigid.velocity = currentVec.normalized * 20.0f;
         }
-
+        if(getback)
+        {
+            transform.position = Vector3.Lerp(transform.position,backpos,0.002f);
+            
+        }
+        if(transform.position.y > 0.5)
+        {
+            this.transform.position = new Vector3(0,0.475f,0);
+        }
+         if(transform.position.y < 0.41)
+        {
+            this.transform.position = new Vector3(0,0.475f,0);
+        }
         if (lookAtPlayer)
         {
             anim.SetInteger("walk",1);
