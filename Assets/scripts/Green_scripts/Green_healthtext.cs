@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class healthtext : MonoBehaviour
+public class Green_healthtext : MonoBehaviour
 {
     public Text healthTxt;
     // Start is called before the first frame update

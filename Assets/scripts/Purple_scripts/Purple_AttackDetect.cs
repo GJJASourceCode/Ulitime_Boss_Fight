@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDetect : MonoBehaviour
+public class Purple_AttackDetect : MonoBehaviour
 {
     bool isHited;
     public AudioSource hit;
@@ -15,12 +15,12 @@ public class AttackDetect : MonoBehaviour
                 isHited = true;
                 if (Playermove.slashNum == 1)
                 {
-                    GreenPattern.monsterHealth -= 32;
+                    PurplePattern.monsterHealth -= 32;
                     hit.Play();
                 }
                 else if (Playermove.slashNum == 2)
                 {
-                    GreenPattern.monsterHealth -= 42;
+                    PurplePattern.monsterHealth -= 42;
                     hit.Play();
                 }
             }
@@ -29,12 +29,12 @@ public class AttackDetect : MonoBehaviour
                 isHited = true;
                 if (Playermove.slashNum == 1)
                 {
-                    GreenPattern.monsterHealth -= 48;
+                    PurplePattern.monsterHealth -= 48;
                     hit.Play();
                 }
                 else if (Playermove.slashNum == 2)
                 {
-                    GreenPattern.monsterHealth -= 63;
+                    PurplePattern.monsterHealth -= 63;
                     hit.Play();
                 }
             }
