@@ -187,6 +187,7 @@ public class GreenPattern : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(Green_Area_Detect.whichArea);
         if(isBackJump){
             transform.position = Vector3.Lerp(transform.position, BackJumpVec, 0.02f);
         }

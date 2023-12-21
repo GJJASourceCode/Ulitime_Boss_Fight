@@ -31,20 +31,21 @@ void OnTriggerStay(Collider col)
     {
         if (col.gameObject.name == "Area1")
         {
-            area1 = true;
+            area1 = false;
         }
         if (col.gameObject.name == "Area2")
         {
-            area2 = true;
+            area2 = false;
         }
         if (col.gameObject.name == "Area3")
         {
-            area3 = true;
+            area3 = false;
         }
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(area1+", "+area2+", "+area3);
         if(area1){
             whichArea = 1;
         }
