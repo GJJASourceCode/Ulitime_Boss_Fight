@@ -35,8 +35,6 @@ public class PAttackDetect : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(Playermove.health);
-    }
+    
+   
 }

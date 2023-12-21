@@ -39,7 +39,7 @@ public class Playermove : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(isEnd);
+        
         bbCurrentTime += Time.deltaTime;
         if(bbCurrentTime>bbTime){
             bbCurrentTime =0f;
