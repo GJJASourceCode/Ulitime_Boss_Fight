@@ -3626,7 +3626,6 @@ MonoBehaviour:
   fadeInOnStart: 1
   fadeOutOnExit: 1
   you: {fileID: 1004684534}
-MonoBehaviour:
 --- !u!1001 &1966951737
 PrefabInstance:
   m_ObjectHideFlags: 0
