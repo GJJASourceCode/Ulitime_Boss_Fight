@@ -142,7 +142,7 @@ public class GreenPattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
-    IEnumerator movetime()
+    IEnumerator movetime()                                                                                                                      
     {//이동시 2초만 이동
         yield return new WaitForSeconds(2f);
         state = 0;
@@ -159,7 +159,7 @@ public class GreenPattern : MonoBehaviour
                 StartCoroutine("state_0");//일시정지
                 break;
             case 1:
-                StartCoroutine("attack1");//attack1 손으로 공격
+                StartCoroutine("attack1");//attack1 손으로 공격                           
                 break;
             case 2:
                 StartCoroutine("attack2");//attack2 꺠물기 
