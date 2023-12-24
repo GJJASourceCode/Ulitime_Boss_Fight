@@ -112,7 +112,6 @@ public class Bluepattern : MonoBehaviour
     }
     IEnumerator trace()
     {
-        Debug.Log("trace¿€µø");
         anim.SetTrigger("scream");
         //howlingSound.Play();
         yield return new WaitForSeconds(3f);

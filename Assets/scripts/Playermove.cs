@@ -19,7 +19,7 @@ public class Playermove : MonoBehaviour
     void Awake()
     {
         isEnd = false;
-        bossBattleBGM.Play();
+        //bossBattleBGM.Play();
         bbTime = 130f;
         body = GameObject.Find("Armature");
         pRigid = GetComponent<Rigidbody>();
@@ -50,7 +50,7 @@ public class Playermove : MonoBehaviour
             bossBattleBGM.Stop();
             defeatBGM.Play();
         }
-        if(PurplePattern.isDeath&&!isEnd){
+        if(GreenPattern.isDeath&&!isEnd){
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
