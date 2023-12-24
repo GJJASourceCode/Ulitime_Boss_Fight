@@ -50,7 +50,7 @@ public class Playermove : MonoBehaviour
             bossBattleBGM.Stop();
             defeatBGM.Play();
         }
-        if(GreenPattern.isDeath&&!isEnd){
+        if(PurplePattern.isDeath&&!isEnd){
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
