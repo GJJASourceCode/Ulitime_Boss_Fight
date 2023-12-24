@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1166,18 +1166,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 183e515ae4484d947b78a2c427f39aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &418996348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132414172804738630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0dd4f4306119e54cbc65ca1af256499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &432716395
@@ -2411,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524388206924951387, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.z
-      value: 200
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 4524388206924951387, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_IsTrigger
@@ -2419,7 +2407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5048201084376481539, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.x
-      value: 200
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 5048201084376481539, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.y
@@ -2523,11 +2511,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.y
-      value: 170
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.z
-      value: 190
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8699566587343565863, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.x
@@ -3090,7 +3082,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385871238}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3791,6 +3783,10 @@ PrefabInstance:
     - target: {fileID: 2455088945677910420, guid: 432c6e637cd263f4d87628b7a9ad38fd, type: 3}
       propertyPath: m_Name
       value: FirePunch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455088945677910420, guid: 432c6e637cd263f4d87628b7a9ad38fd, type: 3}
+      propertyPath: m_TagString
+      value: AttackRange
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432c6e637cd263f4d87628b7a9ad38fd, type: 3}
@@ -8565,24 +8561,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &8132414172804738629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132414172804738630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7977bb4777bc31d43b2d92102dad8e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slash1: {fileID: 1062536804}
-  slash2: {fileID: 1608880304}
-  bossBattleBGM: {fileID: 775333337}
-  defeatBGM: {fileID: 561905947}
-  victoryBGM: {fileID: 1385871240}
-  deathtext: {fileID: 1901340976}
 --- !u!1 &8132414172804738630
 GameObject:
   m_ObjectHideFlags: 0
@@ -8594,9 +8572,9 @@ GameObject:
   - component: {fileID: 8132414172804738626}
   - component: {fileID: 8132414172804738627}
   - component: {fileID: 8132414172804738628}
-  - component: {fileID: 8132414172804738629}
+  - component: {fileID: 8132414172804738632}
+  - component: {fileID: 8132414172804738633}
   - component: {fileID: 418996347}
-  - component: {fileID: 418996348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8604,6 +8582,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8132414172804738632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132414172804738630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a3ed82b35be9140a17fe1a98acce00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slash1: {fileID: 1062536804}
+  slash2: {fileID: 1608880304}
+  bossBattleBGM: {fileID: 775333337}
+  defeatBGM: {fileID: 561905947}
+  victoryBGM: {fileID: 1385871240}
+  deathtext: {fileID: 1901340976}
+--- !u!114 &8132414172804738633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132414172804738630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08dee28273f78b44b8594203bc6ae9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &8132414172818042639
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
