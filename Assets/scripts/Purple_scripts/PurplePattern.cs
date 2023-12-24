@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PurplePattern : MonoBehaviour
 {
-    public static bool isAttacking;
+    public static bool isAttacking, isDeath;
     public static int monsterHealth;
     public static int state;
     public static bool readyfire;
+    public GameObject player, victory;
     Animator anim;
     GameObject[] area;
-    GameObject player;
     Rigidbody rigid;
     Vector3 currentVec;
     Vector3 backpos = new Vector3(0,0.475f,0);
-    bool area1, area2, lookAtPlayer, run,getback; 
+    bool area1, area2, lookAtPlayer, run, getback; 
     Quaternion rotGoal;
      // set varieties
 
@@ -103,6 +103,7 @@ public class PurplePattern : MonoBehaviour
         //area[2].SetActive(true);
         //jumpAttackSound2.Play();
         readyfire = false;
+        getback = false;
         yield return new WaitForSeconds(3.7f);
         //area[2].SetActive(false);
         
@@ -146,7 +147,11 @@ public class PurplePattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
-
+    IEnumerator Diiie()
+    {
+        yield return new WaitForSeconds(3f);
+        victory.SetActive(true);
+    }
     void choosePattern()
     {
         switch (state)
@@ -201,6 +206,17 @@ public class PurplePattern : MonoBehaviour
     }
     void Update() 
     {
+        if(monsterHealth<=0&&!isDeath){
+            isDeath = true;
+            state = 6;
+            monsterHealth = 0;
+            anim.SetTrigger("death");
+            anim.SetInteger("dying",1);
+            StartCoroutine("Diiie");
+        }
+        if(isDeath){
+            monsterHealth = 0;
+        }
         if(area2 && state == 5)
         {
             StopCoroutine("trace");
@@ -223,11 +239,11 @@ public class PurplePattern : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position,backpos,0.002f);
             
         }
-        if(transform.position.y > 0.5)
+        if(transform.position.y > 0.6f)
         {
             this.transform.position = new Vector3(0,0.475f,0);
         }
-         if(transform.position.y < 0.41)
+         if(transform.position.y < 0.35f)
         {
             this.transform.position = new Vector3(0,0.475f,0);
         }

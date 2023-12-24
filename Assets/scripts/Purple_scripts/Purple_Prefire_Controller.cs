@@ -11,7 +11,7 @@ public class Purple_Prefire_Controller : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         nemo = GameObject.Find("mouth");
         dir = nemo.transform.TransformDirection(Vector3.forward*-10);
-        Destroy(gameObject,1.5f);
+        Destroy(gameObject,2.5f);
         
     }
     

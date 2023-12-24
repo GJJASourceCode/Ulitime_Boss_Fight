@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playermove : MonoBehaviour
+public class Purple_Playermove : MonoBehaviour
 {
     float bbCurrentTime, bbTime;
     public AudioSource slash1, slash2, bossBattleBGM, defeatBGM, victoryBGM;
