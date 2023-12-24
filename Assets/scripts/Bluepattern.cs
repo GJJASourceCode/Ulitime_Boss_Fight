@@ -17,6 +17,8 @@ public class Bluepattern : MonoBehaviour
 
     void Awake()
     {
+        isAttacking = false;
+        isDeath = false;
         area = new GameObject[5];
         area[0] = GameObject.Find("Chest_collider");
         area[1] = GameObject.Find("Head_collider");
@@ -105,8 +107,8 @@ public class Bluepattern : MonoBehaviour
     {
         Debug.Log("√Ú¡Ó∆–≈œ");
         Debug.Log(state);
-        /*if (!isDeath)
-        {*/
+        if (!isDeath)
+        {
             switch (state)
             {
                 case 0:
@@ -125,7 +127,7 @@ public class Bluepattern : MonoBehaviour
                 default:
                     break;
             }
-        /* }*/
+         }
     }
     void OnTriggerStay(Collider col)
     {
@@ -155,7 +157,7 @@ public class Bluepattern : MonoBehaviour
     {
         Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         Vector3 zero = new Vector3(0f, 0f, 0f);
-        /*if (run)
+        if (run)
         {
             rigid.velocity = currentVec.normalized * 20.0f;
         }
@@ -169,7 +171,7 @@ public class Bluepattern : MonoBehaviour
         else
         {
             anim.SetInteger("walk", 0);
-        }*/
+        }
 
         if (state == 3) 
         {
