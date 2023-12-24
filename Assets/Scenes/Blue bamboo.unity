@@ -557,7 +557,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1001 &208573939
 PrefabInstance:
@@ -3546,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9138902982060026327, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9138902982060026327, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3596,6 +3596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 9138902982067551073, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4c5c7b7a6af1c2c4aa9a5af89df173c7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
 --- !u!1 &2108677206
@@ -3610,7 +3614,6 @@ GameObject:
   - component: {fileID: 2108677208}
   - component: {fileID: 2108677207}
   - component: {fileID: 2108677210}
-  - component: {fileID: 2108677211}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3719,24 +3722,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2108677211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108677206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7977bb4777bc31d43b2d92102dad8e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slash1: {fileID: 0}
-  slash2: {fileID: 0}
-  bossBattleBGM: {fileID: 0}
-  defeatBGM: {fileID: 0}
-  victoryBGM: {fileID: 0}
-  deathtext: {fileID: 0}
 --- !u!1 &2133007592
 GameObject:
   m_ObjectHideFlags: 0
