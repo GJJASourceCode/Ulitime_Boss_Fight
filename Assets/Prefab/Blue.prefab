@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 9138902982060025261}
   - component: {fileID: 1622846523014387810}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Head_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +559,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138902982060194765}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 150, y: 200, z: 380}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 9138902982060134327}
   - component: {fileID: 830801327208232467}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: Chest_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,7 +701,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138902982060198045}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 900, y: 400, z: 300}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 9138902982060018045}
   - component: {fileID: 7616767363820596792}
   m_Layer: 0
-  m_Name: Tongue01
+  m_Name: Tongue01_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138902982060199019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 300, y: 20, z: 60}
@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 9138902982060145473}
   - component: {fileID: 7032292493111353901}
   m_Layer: 0
-  m_Name: Middle01_L
+  m_Name: Middle01_L_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,7 +1572,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138902982060353975}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 180, y: 40, z: 70}
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 9138902982060142201}
   - component: {fileID: 952380525537454040}
   m_Layer: 0
-  m_Name: Middle01_R
+  m_Name: Middle01_R_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,7 +1745,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138902982060360757}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 180, y: 40, z: 70}
