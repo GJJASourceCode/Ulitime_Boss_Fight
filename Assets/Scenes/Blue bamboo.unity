@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3592,6 +3592,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -15.12
       objectReference: {fileID: 0}
+    - target: {fileID: 9138902982060198045, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
+      propertyPath: m_Name
+      value: Chest01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138902982060198045, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9138902982060377055, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
       propertyPath: m_Name
       value: Blue
@@ -3600,6 +3608,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4c5c7b7a6af1c2c4aa9a5af89df173c7, type: 2}
+    - target: {fileID: 9138902982067551073, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dee9340ef1ade304293e70b0cb62be8f, type: 3}
 --- !u!1 &2108677206
