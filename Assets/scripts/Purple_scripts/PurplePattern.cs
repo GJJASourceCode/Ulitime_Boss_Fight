@@ -81,10 +81,10 @@ public class PurplePattern : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
-        area[0].SetActive(true);
+        area[1].SetActive(true);
         isAttacking = true;
         yield return new WaitForSeconds(0.2f);
-        area[0].SetActive(false);
+        area[1].SetActive(false);
         isAttacking = false;
         yield return new WaitForSeconds(0.5f);
         state = 0;
@@ -97,13 +97,14 @@ public class PurplePattern : MonoBehaviour
         //jumpAttackSound1.Play();
         //readyfire = true;
         getback = true;
-        
+        isAttacking = true;
         readyfire = true;
         yield return new WaitForSeconds(3.267f);
         //area[2].SetActive(true);
         //jumpAttackSound2.Play();
         readyfire = false;
         getback = false;
+        isAttacking = false;
         yield return new WaitForSeconds(3.7f);
         //area[2].SetActive(false);
         
@@ -125,7 +126,6 @@ public class PurplePattern : MonoBehaviour
         anim.SetInteger("run", 1);
         //dashSound.Play();
         //area[3].SetActive(true);
-        isAttacking = true;
         run = true;
         lookAtPlayer = true;
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
@@ -140,7 +140,6 @@ public class PurplePattern : MonoBehaviour
         lookAtPlayer = false;
         yield return new WaitForSeconds(0.75f);
         //area[3].SetActive(false);
-        isAttacking = false;
         anim.SetInteger("run", 0);
         run = false;
         yield return new WaitForSeconds(0.5f);
@@ -220,10 +219,7 @@ public class PurplePattern : MonoBehaviour
         if(area2 && state == 5)
         {
             StopCoroutine("trace");
-            lookAtPlayer = false;
-            isAttacking = false;
             anim.SetInteger("run", 0);
-            run = false;
             state = 0;
             choosePattern();
         }

@@ -8,33 +8,33 @@ public class Purple_AttackDetect : MonoBehaviour
     public AudioSource hit;
     void OnTriggerStay(Collider col)
     {
-        if (Playermove.isSlashing && !isHited)
+        if (Purple_Playermove.isSlashing && !isHited)
         {
             if (col.gameObject.tag == "DamageBox")
             {
                 isHited = true;
-                if (Playermove.slashNum == 1)
+                if (Purple_Playermove.slashNum == 1)
                 {
-                    PurplePattern.monsterHealth -= 32;
+                    PurplePattern.monsterHealth -= 16;
                     hit.Play();
                 }
-                else if (Playermove.slashNum == 2)
+                else if (Purple_Playermove.slashNum == 2)
                 {
-                    PurplePattern.monsterHealth -= 42;
+                    PurplePattern.monsterHealth -= 30;
                     hit.Play();
                 }
             }
             else if (col.gameObject.tag == "YackDamageBox")
             {
                 isHited = true;
-                if (Playermove.slashNum == 1)
+                if (Purple_Playermove.slashNum == 1)
                 {
-                    PurplePattern.monsterHealth -= 48;
+                    PurplePattern.monsterHealth -= 40;
                     hit.Play();
                 }
-                else if (Playermove.slashNum == 2)
+                else if (Purple_Playermove.slashNum == 2)
                 {
-                    PurplePattern.monsterHealth -= 63;
+                    PurplePattern.monsterHealth -= 50;
                     hit.Play();
                 }
             }
@@ -49,7 +49,7 @@ public class Purple_AttackDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Playermove.isSlashing == false)
+        if (Purple_Playermove.isSlashing == false)
         {
             isHited = false;
         }

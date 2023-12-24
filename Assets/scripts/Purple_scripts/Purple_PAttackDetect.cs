@@ -34,6 +34,7 @@ public class Purple_PAttackDetect : MonoBehaviour
     void Update()
     {
         Debug.Log(Playermove.health);
+        
     }
     
    
