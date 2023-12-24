@@ -29,6 +29,7 @@ public class Bluepattern : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
+        state = 0;
         area1 = false;
         area2 = false;
         lookAtPlayer = false;
@@ -167,15 +168,15 @@ public class Bluepattern : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Area1")//¹Ù±ù¿ø
+        if (col.gameObject.name == "Area1")//ï¿½Ù±ï¿½ï¿½ï¿½
         {
             area1 = true;
-            //Debug.Log("Á¢±Ù1");
+            //Debug.Log("ï¿½ï¿½ï¿½ï¿½1");
         }
-        if (col.gameObject.name == "Area2")//¾ÈÂÊ¿ø
+        if (col.gameObject.name == "Area2")//ï¿½ï¿½ï¿½Ê¿ï¿½
         {
             area2 = true;
-            //Debug.Log("Á¢±Ù2");
+            //Debug.Log("ï¿½ï¿½ï¿½ï¿½2");
         }
     }
     void OnTriggerExit(Collider col)
@@ -213,7 +214,7 @@ public class Bluepattern : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
 
         }
-        
+
         if (lookAtPlayer)
         {
             anim.SetInteger("walk", 1);
@@ -238,10 +239,11 @@ public class Bluepattern : MonoBehaviour
             rigid.velocity = dir.normalized * 4.0f;
 
         }
-        if (state == 0 || state == 1 || state == 2  )
+        if (state == 0 || state == 1 || state == 2)
         {
             rigid.velocity = zero * 4.0f;
         }
     }
-
 }
+
+

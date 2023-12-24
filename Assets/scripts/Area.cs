@@ -8,7 +8,8 @@ public class Area : MonoBehaviour
     GameObject player;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");        
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = player.transform.position;
     }
 
     // Update is called once per frame
