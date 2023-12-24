@@ -50,12 +50,12 @@ public class Purple_Playermove : MonoBehaviour
             bossBattleBGM.Stop();
             defeatBGM.Play();
         }
-        /*if(PurplePattern.isDeath&&!isEnd){
+        if(PurplePattern.isDeath&&!isEnd){
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
             victoryBGM.Play();
-        }*/
+        }
         if(health<=0&&!isDeath){
             anim.SetTrigger("death");
             isDeath = true;
@@ -144,5 +144,6 @@ public class Purple_Playermove : MonoBehaviour
                 anim.SetInteger("animState", 0);
             }
         }
+        Debug.Log(isDeath);
     }
 }

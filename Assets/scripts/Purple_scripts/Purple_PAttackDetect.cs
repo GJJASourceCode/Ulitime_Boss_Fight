@@ -16,10 +16,10 @@ public class Purple_PAttackDetect : MonoBehaviour
                 switch (PurplePattern.state)
                 {
                     case 1:
-                        Playermove.health -= 17;
+                        Playermove.health -= 15;
                         break;
                     case 2:
-                        Playermove.health -= 17;
+                        Playermove.health -= 5;
                         break;
                     case 3:
                         Playermove.health -= 5;
@@ -33,7 +33,7 @@ public class Purple_PAttackDetect : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(Playermove.health);
+        
         
     }
     

@@ -1539,7 +1539,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d39762d52952084881f4c1fdda8cfad, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.186
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2080,7 +2080,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.011
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2507,15 +2507,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.x
-      value: 200
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.y
-      value: 210
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_Size.z
-      value: 230
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
+      propertyPath: m_Center.z
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5782796269373173712, guid: 37102b81ddee0fb42be769b40d0c44d4, type: 3}
       propertyPath: m_IsTrigger
@@ -2626,8 +2630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389691896073dc2439410eee65317d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8132414172804738630}
-  victory: {fileID: 103516627}
 --- !u!54 &959831943
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3102,7 +3104,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6bf8bd34846223439dc621cd6db6775, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.669
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4166,7 +4168,7 @@ GameObject:
   - component: {fileID: 1901340978}
   - component: {fileID: 1901340981}
   m_Layer: 5
-  m_Name: Image
+  m_Name: youdie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4224,7 +4226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 884c84c5bfc85b0458fb77b19b23ef88, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4315,7 +4317,6 @@ GameObject:
   - component: {fileID: 2108677208}
   - component: {fileID: 2108677207}
   - component: {fileID: 2108677210}
-  - component: {fileID: 2108677211}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4424,24 +4425,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2108677211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108677206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7977bb4777bc31d43b2d92102dad8e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slash1: {fileID: 0}
-  slash2: {fileID: 0}
-  bossBattleBGM: {fileID: 0}
-  defeatBGM: {fileID: 0}
-  victoryBGM: {fileID: 0}
-  deathtext: {fileID: 0}
 --- !u!1 &2133007592
 GameObject:
   m_ObjectHideFlags: 0

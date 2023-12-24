@@ -14,7 +14,7 @@ public class PurplePattern : MonoBehaviour
     Rigidbody rigid;
     Vector3 currentVec;
     Vector3 backpos = new Vector3(0, 0.475f, 0);
-    bool area1, area2, lookAtPlayer, run, getback;
+    bool area1, area2, lookAtPlayer, run, getback,zeropos;
     Quaternion rotGoal;
     // set varieties
 
@@ -62,12 +62,12 @@ public class PurplePattern : MonoBehaviour
     }
     IEnumerator basic_attack()
     {
+        isAttacking = true;
         anim.SetTrigger("basic attack");
         yield return new WaitForSeconds(0.7f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
         area[0].SetActive(true);
-        isAttacking = true;
         yield return new WaitForSeconds(0.2f);
         area[0].SetActive(false);
         isAttacking = false;
@@ -77,12 +77,12 @@ public class PurplePattern : MonoBehaviour
     }
     IEnumerator claw_attack()
     {
+        isAttacking = true;
         anim.SetTrigger("claw attack");
         yield return new WaitForSeconds(0.7f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
         area[1].SetActive(true);
-        isAttacking = true;
         yield return new WaitForSeconds(0.2f);
         area[1].SetActive(false);
         isAttacking = false;
@@ -106,6 +106,7 @@ public class PurplePattern : MonoBehaviour
         getback = false;
         isAttacking = false;
         yield return new WaitForSeconds(3.7f);
+        
         //area[2].SetActive(false);
 
         state = 0;
@@ -217,16 +218,22 @@ public class PurplePattern : MonoBehaviour
         }
         if (getback)
         {
-            transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
+            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 15, 0.006f);
+            zeropos = true;
 
+        }
+        if(zeropos)
+        {
+            transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
+            zeropos = false;
         }
         if (transform.position.y > 0.5)
         {
-            this.transform.position = new Vector3(0, 0.475f, 0);
+            this.transform.position = new Vector3(transform.position.x, 0.475f, transform.position.z);
         }
         if (transform.position.y < 0.41)
         {
-            this.transform.position = new Vector3(0, 0.475f, 0);
+            this.transform.position = new Vector3(transform.position.x, 0.475f, transform.position.z);
         }
         if (lookAtPlayer)
         {
