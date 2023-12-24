@@ -211,7 +211,6 @@ public class Bluepattern : MonoBehaviour
             state = 0;
             choosePattern();
         }
-        //Debug.Log(run);
         Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         Vector3 zero = new Vector3(0f, 0f, 0f);
         if (run)

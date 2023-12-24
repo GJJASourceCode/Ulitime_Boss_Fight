@@ -15,16 +15,16 @@ public class PAttackDetect : MonoBehaviour
             {
                 switch (GreenPattern.state)
                 {
-                    case 1:
-                        Playermove.health -= 23;
-                        break;
                     case 2:
-                        Playermove.health -= 32;
+                        Playermove.health -= 23;
                         break;
                     case 3:
                         Playermove.health -= 40;
                         break;
                     case 4:
+                        Playermove.health -= 32;
+                        break;
+                    case 5:
                         Playermove.health -= 45;
                         break;
                     default:
@@ -35,6 +35,6 @@ public class PAttackDetect : MonoBehaviour
         }
     }
     // Update is called once per frame
-    
-   
+
+
 }
