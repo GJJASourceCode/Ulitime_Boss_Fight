@@ -100,12 +100,14 @@ public class PurplePattern : MonoBehaviour
         isAttacking = true;
         readyfire = true;
         yield return new WaitForSeconds(3.267f);
+        zeropos = true;
         //area[2].SetActive(true);
         //jumpAttackSound2.Play();
         readyfire = false;
         getback = false;
         isAttacking = false;
         yield return new WaitForSeconds(3.7f);
+        zeropos = false;
         
         //area[2].SetActive(false);
 
@@ -218,14 +220,14 @@ public class PurplePattern : MonoBehaviour
         }
         if (getback)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 15, 0.006f);
-            zeropos = true;
+            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 10, 0.002f);
+            
 
         }
         if(zeropos)
         {
-            transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
-            zeropos = false;
+            transform.position = Vector3.Lerp(transform.position, backpos, 0.004f); 
+            //transform.position = backpos;
         }
         if (transform.position.y > 0.5)
         {
@@ -263,6 +265,7 @@ public class PurplePattern : MonoBehaviour
         {
             rigid.velocity = zero * 4.0f;
         }
+        //Debug.Log(zeropos);
     }
 
 }

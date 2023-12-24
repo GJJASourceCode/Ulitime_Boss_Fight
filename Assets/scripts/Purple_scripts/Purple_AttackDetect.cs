@@ -15,7 +15,7 @@ public class Purple_AttackDetect : MonoBehaviour
                 isHited = true;
                 if (Purple_Playermove.slashNum == 1)
                 {
-                    PurplePattern.monsterHealth -= 16;
+                    PurplePattern.monsterHealth -= 200;
                     hit.Play();
                 }
                 else if (Purple_Playermove.slashNum == 2)

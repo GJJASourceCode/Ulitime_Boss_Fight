@@ -13,6 +13,7 @@ public class Purple_Playermove : MonoBehaviour
         victoryBGM;
     GameObject body;
     public GameObject deathtext;
+    public GameObject wintext;
     public static int slashNum,
         health;
     Animator anim;
@@ -78,6 +79,7 @@ public class Purple_Playermove : MonoBehaviour
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
+            wintext.SetActive(true);
             victoryBGM.Play();
         }
         if (health <= 0 && !isDeath)
