@@ -4,38 +4,33 @@ using UnityEngine;
 
 public class Purple_PAttackDetect : MonoBehaviour
 {
-    void Start()
-    {
-    }
+    void Start() { }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "AttackRange")
         {
-            if (PurplePattern.isAttacking && !Playermove.isRoll && !Playermove.isDeath)
+            if (
+                PurplePattern.isAttacking && !Purple_Playermove.isRoll && !Purple_Playermove.isDeath
+            )
             {
                 switch (PurplePattern.state)
                 {
                     case 1:
-                        Playermove.health -= 15;
+                        Purple_Playermove.health -= 15;
                         break;
                     case 2:
-                        Playermove.health -= 5;
+                        Purple_Playermove.health -= 5;
                         break;
                     case 3:
-                        Playermove.health -= 5;
+                        Purple_Playermove.health -= 5;
                         break;
                     default:
                         break;
                 }
             }
-
         }
     }
-    void Update()
-    {
-        
-        
-    }
-    
-   
+
+    void Update() { }
 }

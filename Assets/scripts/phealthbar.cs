@@ -6,14 +6,11 @@ using UnityEngine.UI;
 public class phealthbar : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = new Vector3(Playermove.health / 206.1f, 0.83f, 1);
+        transform.localScale = new Vector3(Purple_Playermove.health / 206.1f, 0.83f, 1);
     }
 }

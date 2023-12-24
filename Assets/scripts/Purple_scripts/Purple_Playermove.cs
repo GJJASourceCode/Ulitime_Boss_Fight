@@ -4,20 +4,40 @@ using UnityEngine;
 
 public class Purple_Playermove : MonoBehaviour
 {
-    float bbCurrentTime, bbTime;
-    public AudioSource slash1, slash2, bossBattleBGM, defeatBGM, victoryBGM;
+    float bbCurrentTime,
+        bbTime;
+    public AudioSource slash1,
+        slash2,
+        bossBattleBGM,
+        defeatBGM,
+        victoryBGM;
     GameObject body;
     public GameObject deathtext;
-    public static int slashNum, health;
+    public static int slashNum,
+        health;
     Animator anim;
-    float xInput, zInput, pSpeed, slashTime, slashCurrentTime, rollTime, rollCurrentTime;
-    Vector3 moveVec, point;
+    float xInput,
+        zInput,
+        pSpeed,
+        slashTime,
+        slashCurrentTime,
+        rollTime,
+        rollCurrentTime;
+    Vector3 moveVec,
+        point;
     Vector2 turn;
     Rigidbody pRigid;
-    bool canRoll, rollEnd;
-    public static bool isSlashing, isRoll, isHited, isDeath, isEnd;
+    bool canRoll,
+        rollEnd;
+    public static bool isSlashing,
+        isRoll,
+        isHited,
+        isDeath,
+        isEnd;
+
     void Awake()
     {
+        Debug.Log("Awake");
         isEnd = false;
         bossBattleBGM.Play();
         bbTime = 130f;
@@ -36,30 +56,35 @@ public class Purple_Playermove : MonoBehaviour
         canRoll = true;
         slashNum = 0;
         health = 200;
+        Debug.Log(health);
     }
+
     void Update()
     {
-        
         bbCurrentTime += Time.deltaTime;
-        if(bbCurrentTime>bbTime){
-            bbCurrentTime =0f;
+        if (bbCurrentTime > bbTime)
+        {
+            bbCurrentTime = 0f;
             bossBattleBGM.Play();
         }
-        if(isDeath&&!isEnd){
+        if (isDeath && !isEnd)
+        {
             isEnd = true;
             bossBattleBGM.Stop();
             defeatBGM.Play();
         }
-        if(PurplePattern.isDeath&&!isEnd){
+        if (PurplePattern.isDeath && !isEnd)
+        {
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
             victoryBGM.Play();
         }
-        if(health<=0&&!isDeath){
+        if (health <= 0 && !isDeath)
+        {
             anim.SetTrigger("death");
             isDeath = true;
-            health=0;
+            health = 0;
             anim.SetInteger("dying", 1);
             deathtext.SetActive(true);
         }
@@ -87,23 +112,24 @@ public class Purple_Playermove : MonoBehaviour
         {
             canRoll = true;
         }
-        if(!isDeath){
+        if (!isDeath)
+        {
             if (Input.GetKey("w"))
-        {
-            pRigid.velocity = transform.forward * pSpeed;
-        }
-        if (Input.GetKey("s"))
-        {
-            pRigid.velocity = -transform.forward * pSpeed;
-        }
-        if (Input.GetKey("d"))
-        {
-            pRigid.velocity = transform.right * pSpeed;
-        }
-        if (Input.GetKey("a"))
-        {
-            pRigid.velocity = -transform.right * pSpeed;
-        }
+            {
+                pRigid.velocity = transform.forward * pSpeed;
+            }
+            if (Input.GetKey("s"))
+            {
+                pRigid.velocity = -transform.forward * pSpeed;
+            }
+            if (Input.GetKey("d"))
+            {
+                pRigid.velocity = transform.right * pSpeed;
+            }
+            if (Input.GetKey("a"))
+            {
+                pRigid.velocity = -transform.right * pSpeed;
+            }
         }
         if (Input.GetMouseButton(0) && !isSlashing && rollEnd && !isDeath)
         {
@@ -134,16 +160,18 @@ public class Purple_Playermove : MonoBehaviour
         }
         if (Mathf.Abs(xInput) > Mathf.Epsilon || Mathf.Abs(zInput) > Mathf.Epsilon)
         {
-            if(!isDeath){
+            if (!isDeath)
+            {
                 anim.SetInteger("animState", 1);
             }
         }
         else
         {
-            if(!isDeath){
+            if (!isDeath)
+            {
                 anim.SetInteger("animState", 0);
             }
         }
-        Debug.Log(isDeath);
+        // Debug.Log(isDeath);
     }
 }
