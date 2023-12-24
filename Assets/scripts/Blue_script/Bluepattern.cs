@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Bluepattern : MonoBehaviour
 {
-    public static bool isAttacking, isDeath;
+    public static bool isAttacking,
+        isDeath;
     public static int monsterHealth;
     public static int state;
     public static bool readyfire;
-    public GameObject player, victory;
+    public GameObject player,
+        victory;
     Animator anim;
     GameObject[] area;
     Rigidbody rigid;
     Vector3 currentVec;
     Vector3 backpos = new Vector3(0, 0.475f, 0);
-    bool area1, area2, lookAtPlayer, run, getback;
+    bool area1,
+        area2,
+        lookAtPlayer,
+        run,
+        getback;
     Quaternion rotGoal;
 
     void Awake()
@@ -22,10 +28,17 @@ public class Bluepattern : MonoBehaviour
         monsterHealth = 500;
         area = new GameObject[5];
         area[0] = GameObject.Find("Chest");
+<<<<<<< HEAD:Assets/scripts/Blue_script/Bluepattern.cs
         area[1] = GameObject.Find("Head");
         area[2] = GameObject.Find("Tongue01");
         area[3] = GameObject.Find("Middle01_L");
         area[4] = GameObject.Find("Middle01_R");
+=======
+        area[1] = GameObject.Find("Head_collider");
+        area[2] = GameObject.Find("Tongue01_collider");
+        area[3] = GameObject.Find("Middle01_L_collider");
+        area[4] = GameObject.Find("Middle01_R_collider");
+>>>>>>> aaf32aafc55288bff8a22e1281c747534daa5c73:Assets/scripts/Bluepattern.cs
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
@@ -37,6 +50,7 @@ public class Bluepattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+
     IEnumerator idle01()
     {
         float time;
@@ -63,6 +77,7 @@ public class Bluepattern : MonoBehaviour
         lookAtPlayer = false;
         choosePattern();
     }
+
     IEnumerator attack1()
     {
         anim.SetTrigger("Attack1");
@@ -80,6 +95,7 @@ public class Bluepattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+
     IEnumerator attack2()
     {
         anim.SetTrigger("Attack2");
@@ -101,6 +117,7 @@ public class Bluepattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+<<<<<<< HEAD:Assets/scripts/Blue_script/Bluepattern.cs
     IEnumerator fly_flame_attack()
     {
         anim.SetTrigger("take off");
@@ -121,12 +138,16 @@ public class Bluepattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+=======
+
+>>>>>>> aaf32aafc55288bff8a22e1281c747534daa5c73:Assets/scripts/Bluepattern.cs
     IEnumerator movetime()
     {
         yield return new WaitForSeconds(2f);
         state = 0;
         choosePattern();
     }
+
     IEnumerator trace()
     {
         Debug.Log("trace");
@@ -139,15 +160,35 @@ public class Bluepattern : MonoBehaviour
         isAttacking = true;
         run = true;
         lookAtPlayer = true;
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        currentVec = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         yield return new WaitForSeconds(0.5f);
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        currentVec = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         yield return new WaitForSeconds(0.5f);
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        currentVec = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         yield return new WaitForSeconds(0.5f);
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        currentVec = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         yield return new WaitForSeconds(0.5f);
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        currentVec = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         lookAtPlayer = false;
         yield return new WaitForSeconds(0.75f);
         //area[3].SetActive(false);
@@ -158,6 +199,7 @@ public class Bluepattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+
     void choosePattern()
     {
         switch (state)
@@ -185,19 +227,29 @@ public class Bluepattern : MonoBehaviour
                 break;
         }
     }
+
     void OnTriggerStay(Collider col)
     {
+<<<<<<< HEAD:Assets/scripts/Blue_script/Bluepattern.cs
         if (col.gameObject.name == "Area1")
+=======
+        if (col.gameObject.name == "Area1") //�ٱ���
+>>>>>>> aaf32aafc55288bff8a22e1281c747534daa5c73:Assets/scripts/Bluepattern.cs
         {
             area1 = true;
             
         }
+<<<<<<< HEAD:Assets/scripts/Blue_script/Bluepattern.cs
         if (col.gameObject.name == "Area2")
+=======
+        if (col.gameObject.name == "Area2") //���ʿ�
+>>>>>>> aaf32aafc55288bff8a22e1281c747534daa5c73:Assets/scripts/Bluepattern.cs
         {
             area2 = true;
             
         }
     }
+
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.name == "Area1")
@@ -209,6 +261,7 @@ public class Bluepattern : MonoBehaviour
             area2 = false;
         }
     }
+
     void Update()
     {
         /*if (monsterHealth <= 0 && !isDeath)
@@ -235,7 +288,11 @@ public class Bluepattern : MonoBehaviour
             choosePattern();
         }
         //Debug.Log(run);
-        Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
+        Vector3 dir = new Vector3(
+            player.transform.position.x - transform.position.x,
+            0f,
+            player.transform.position.z - transform.position.z
+        );
         Vector3 zero = new Vector3(0f, 0f, 0f);
         if (run)
         {
@@ -244,7 +301,6 @@ public class Bluepattern : MonoBehaviour
         if (getback)
         {
             transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
-
         }
         if (lookAtPlayer)
         {
@@ -268,14 +324,10 @@ public class Bluepattern : MonoBehaviour
                 choosePattern();
             }
             rigid.velocity = dir.normalized * 4.0f;
-
         }
         if (state == 0 || state == 1 || state == 2 || state == 3)
         {
             rigid.velocity = zero * 4.0f;
         }
     }
-
 }
-
-
