@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 9138902982060025261}
   - component: {fileID: 1622846523014387810}
   m_Layer: 0
-  m_Name: Head_collider
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 9138902982060134327}
   - component: {fileID: 830801327208232467}
   m_Layer: 0
-  m_Name: Chest_collider
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 9138902982060018045}
   - component: {fileID: 7616767363820596792}
   m_Layer: 0
-  m_Name: Tongue01_collider
+  m_Name: Tongue01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 9138902982060145473}
   - component: {fileID: 7032292493111353901}
   m_Layer: 0
-  m_Name: Middle01_L_collider
+  m_Name: Middle01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 9138902982060142201}
   - component: {fileID: 952380525537454040}
   m_Layer: 0
-  m_Name: Middle01_R_collider
+  m_Name: Middle01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

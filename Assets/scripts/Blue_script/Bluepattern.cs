@@ -21,11 +21,11 @@ public class Bluepattern : MonoBehaviour
     {
         monsterHealth = 500;
         area = new GameObject[5];
-        area[0] = GameObject.Find("Chest_collider");
-        area[1] = GameObject.Find("Head_collider");
-        area[2] = GameObject.Find("Tongue01_collider");
-        area[3] = GameObject.Find("Middle01_L_collider");
-        area[4] = GameObject.Find("Middle01_R_collider");
+        area[0] = GameObject.Find("Chest");
+        area[1] = GameObject.Find("Head");
+        area[2] = GameObject.Find("Tongue01");
+        area[3] = GameObject.Find("Middle01_L");
+        area[4] = GameObject.Find("Middle01_R");
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
@@ -44,21 +44,21 @@ public class Bluepattern : MonoBehaviour
         lookAtPlayer = true;
         time = Random.Range(0f, 0.8f);
         yield return new WaitForSeconds(time);
-        Debug.Log("sd");
+        //Debug.Log("sd");
         if (area1)
         {
             if (area2)
             {
-                state = Random.Range(1, 3);
+                state = Random.Range(1, 4);
             }
             else
             {
-                state = 3;
+                state = 4;
             }
         }
         else
         {
-            state = 4;
+            state = 5;
         }
         lookAtPlayer = false;
         choosePattern();
@@ -98,6 +98,26 @@ public class Bluepattern : MonoBehaviour
         area[3].SetActive(false);
         area[4].SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        state = 0;
+        choosePattern();
+    }
+    IEnumerator fly_flame_attack()
+    {
+        anim.SetTrigger("take off");
+        yield return new WaitForSeconds(4f);
+        //jumpAttackSound1.Play();
+        readyfire = true;
+        getback = true;
+        isAttacking = true;
+        //readyfire = true;
+        yield return new WaitForSeconds(3f);
+        //area[2].SetActive(true);
+        //jumpAttackSound2.Play();
+        readyfire = false;
+        getback = false;
+        isAttacking = false;
+        yield return new WaitForSeconds(4f);
+        //area[2].SetActive(false);
         state = 0;
         choosePattern();
     }
@@ -152,10 +172,13 @@ public class Bluepattern : MonoBehaviour
                 StartCoroutine("attack2"); // swoop
                 break;
             case 3:
+                StartCoroutine("fly_flame_attack"); // FLY BREATH
+                break;
+            case 4:
                 StartCoroutine("movetime"); // walk
                 anim.SetInteger("walk", 1);
                 break;
-            case 4:
+            case 5:
                 StartCoroutine("trace"); // rush
                 break;
             default:
@@ -164,15 +187,15 @@ public class Bluepattern : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "Area1")//�ٱ���
+        if (col.gameObject.name == "Area1")
         {
             area1 = true;
-            //Debug.Log("����1");
+            
         }
-        if (col.gameObject.name == "Area2")//���ʿ�
+        if (col.gameObject.name == "Area2")
         {
             area2 = true;
-            //Debug.Log("����2");
+            
         }
     }
     void OnTriggerExit(Collider col)
@@ -201,7 +224,7 @@ public class Bluepattern : MonoBehaviour
         {
             monsterHealth = 0;
         }*/
-        if (area2 && state == 4)
+        if (area2 && state == 5)
         {
             StopCoroutine("trace");
             lookAtPlayer = false;
@@ -234,7 +257,7 @@ public class Bluepattern : MonoBehaviour
             anim.SetInteger("walk", 0);
         }
 
-        if (state == 3)
+        if (state == 4)
         {
             lookAtPlayer = true;
             if (area2 == true)
@@ -247,7 +270,7 @@ public class Bluepattern : MonoBehaviour
             rigid.velocity = dir.normalized * 4.0f;
 
         }
-        if (state == 0 || state == 1 || state == 2)
+        if (state == 0 || state == 1 || state == 2 || state == 3)
         {
             rigid.velocity = zero * 4.0f;
         }
