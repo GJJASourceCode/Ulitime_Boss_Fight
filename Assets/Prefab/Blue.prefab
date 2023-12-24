@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 9138902982060025261}
   - component: {fileID: 1622846523014387810}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Head_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 9138902982060134327}
   - component: {fileID: 830801327208232467}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: Chest_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 9138902982060018045}
   - component: {fileID: 7616767363820596792}
   m_Layer: 0
-  m_Name: Tongue01
+  m_Name: Tongue01_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 9138902982060145473}
   - component: {fileID: 7032292493111353901}
   m_Layer: 0
-  m_Name: Middle01_L
+  m_Name: Middle01_L_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 9138902982060142201}
   - component: {fileID: 952380525537454040}
   m_Layer: 0
-  m_Name: Middle01_R
+  m_Name: Middle01_R_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,6 +2520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed397d49b4fce843abcee064bf8207d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  victory: {fileID: 0}
 --- !u!1 &9138902982060377479
 GameObject:
   m_ObjectHideFlags: 0
