@@ -566,6 +566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6450719855432191058, guid: 82d1a4e59c34db346849fce5681e46ea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8567365399579317076, guid: 82d1a4e59c34db346849fce5681e46ea, type: 3}
       propertyPath: m_Name
       value: Area2
@@ -1738,6 +1742,10 @@ PrefabInstance:
     - target: {fileID: 3679956371311057715, guid: e69cae3fa833b09418e8be3875b90268, type: 3}
       propertyPath: m_Radius
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413573489324743004, guid: e69cae3fa833b09418e8be3875b90268, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69cae3fa833b09418e8be3875b90268, type: 3}

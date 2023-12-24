@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Bluepattern : MonoBehaviour
 {
-    public static bool isAttacking;
+    public static bool isAttacking, isDeath;
     public static int monsterHealth;
     public static int state;
     public static bool readyfire;
+    public GameObject player, victory;
     Animator anim;
     GameObject[] area;
-    GameObject player;
     Rigidbody rigid;
     Vector3 currentVec;
     Vector3 backpos = new Vector3(0, 0.475f, 0);
@@ -72,12 +72,10 @@ public class Bluepattern : MonoBehaviour
         area[0].SetActive(true);
         area[1].SetActive(true);
         area[2].SetActive(true);
-        isAttacking = true;
         yield return new WaitForSeconds(0.2f);
         area[0].SetActive(false);
         area[1].SetActive(false);
         area[2].SetActive(false);
-        isAttacking = false;
         yield return new WaitForSeconds(0.5f);
         state = 0;
         choosePattern();
@@ -93,14 +91,12 @@ public class Bluepattern : MonoBehaviour
         area[2].SetActive(true);
         area[3].SetActive(true);
         area[4].SetActive(true);
-        isAttacking = true;
         yield return new WaitForSeconds(0.2f);
         area[0].SetActive(false);
         area[1].SetActive(false);
         area[2].SetActive(false);
         area[3].SetActive(false);
         area[4].SetActive(false);
-        isAttacking = false;
         yield return new WaitForSeconds(0.5f);
         state = 0;
         choosePattern();
@@ -113,6 +109,7 @@ public class Bluepattern : MonoBehaviour
     }
     IEnumerator trace()
     {
+        Debug.Log("trace");
         anim.SetTrigger("scream");
         //howlingSound.Play();
         yield return new WaitForSeconds(3f);
@@ -123,13 +120,13 @@ public class Bluepattern : MonoBehaviour
         run = true;
         lookAtPlayer = true;
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         lookAtPlayer = false;
         yield return new WaitForSeconds(0.75f);
@@ -143,7 +140,6 @@ public class Bluepattern : MonoBehaviour
     }
     void choosePattern()
     {
-        Debug.Log("choosepattern");
         switch (state)
         {
             case 0:
@@ -160,7 +156,7 @@ public class Bluepattern : MonoBehaviour
                 anim.SetInteger("walk", 1);
                 break;
             case 4:
-                StartCoroutine("trace"); // rrun
+                StartCoroutine("trace"); // rush
                 break;
             default:
                 break;
@@ -192,6 +188,19 @@ public class Bluepattern : MonoBehaviour
     }
     void Update()
     {
+        /*if (monsterHealth <= 0 && !isDeath)
+        {
+            isDeath = true;
+            state = 6;
+            monsterHealth = 0;
+            anim.SetTrigger("death");
+            anim.SetInteger("dying", 1);
+            StartCoroutine("Diiie");
+        }
+        if (isDeath)
+        {
+            monsterHealth = 0;
+        }*/
         if (area2 && state == 4)
         {
             StopCoroutine("trace");
@@ -202,7 +211,7 @@ public class Bluepattern : MonoBehaviour
             state = 0;
             choosePattern();
         }
-        Debug.Log(state);
+        //Debug.Log(run);
         Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         Vector3 zero = new Vector3(0f, 0f, 0f);
         if (run)
@@ -214,7 +223,6 @@ public class Bluepattern : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, backpos, 0.002f);
 
         }
-
         if (lookAtPlayer)
         {
             anim.SetInteger("walk", 1);
@@ -244,6 +252,7 @@ public class Bluepattern : MonoBehaviour
             rigid.velocity = zero * 4.0f;
         }
     }
+
 }
 
 
