@@ -11,7 +11,7 @@ public class Purple_Playermove : MonoBehaviour
         bossBattleBGM,
         defeatBGM,
         victoryBGM;
-    GameObject body;
+    GameObject body, sword;
     public GameObject deathtext;
     public GameObject wintext;
     public static int slashNum,
@@ -43,13 +43,15 @@ public class Purple_Playermove : MonoBehaviour
         bossBattleBGM.Play();
         bbTime = 130f;
         body = GameObject.Find("Armature");
+        sword = GameObject.Find("SwordCollider");
+        sword.SetActive(false);
         pRigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         pSpeed = 4.0f;
         slashCurrentTime = 0f;
         rollCurrentTime = 0f;
         slashTime = 0f;
-        rollTime = 0.9f;
+        rollTime = 0.7f;
         isRoll = false;
         isSlashing = false;
         isHited = false;
@@ -62,6 +64,10 @@ public class Purple_Playermove : MonoBehaviour
 
     void Update()
     {
+        if (isSlashing == false)
+        {
+            Purple_AttackDetect.isHited = false;
+        }
         bbCurrentTime += Time.deltaTime;
         if (bbCurrentTime > bbTime)
         {
@@ -108,12 +114,16 @@ public class Purple_Playermove : MonoBehaviour
         {
             isSlashing = false;
         }
+        if (slashCurrentTime > slashTime-0.2f)
+        {
+            sword.SetActive(false);
+        }
         if (rollCurrentTime > 0.3f)
         {
             pSpeed = 4.0f;
             isRoll = false;
         }
-        if (rollCurrentTime > 0.7f)
+        if (rollCurrentTime > 0.65f)
         {
             rollEnd = true;
         }
@@ -150,12 +160,14 @@ public class Purple_Playermove : MonoBehaviour
                 slashTime = 1.2f / 1.5f;
                 anim.SetTrigger("slashing1");
                 slash1.Play();
+                sword.SetActive(true);
             }
             else if (slashNum == 2)
             {
-                slashTime = 1.8f / 1.5f;
+                slashTime = 1.8f / 2.25f;
                 anim.SetTrigger("slashing2");
                 slash2.Play();
+                sword.SetActive(true);
             }
         }
         else if (Input.GetKeyDown("left shift") && !isSlashing && canRoll && !isDeath)

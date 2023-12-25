@@ -77,6 +77,9 @@ public class Playermove : MonoBehaviour
         if (slashCurrentTime > slashTime)
         {
             isSlashing = false;
+        }
+        if (slashCurrentTime > slashTime-0.2f)
+        {
             sword.SetActive(false);
         }
         if (rollCurrentTime > 0.3f)
@@ -84,7 +87,7 @@ public class Playermove : MonoBehaviour
             pSpeed = 4.0f;
             isRoll = false;
         }
-        if (rollCurrentTime > 0.7f)
+        if (rollCurrentTime > 0.65f)
         {
             rollEnd = true;
         }

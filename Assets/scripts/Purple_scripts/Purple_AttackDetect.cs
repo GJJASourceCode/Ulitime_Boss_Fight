@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Purple_AttackDetect : MonoBehaviour
 {
-    bool isHited;
-    public AudioSource hit;
+    public static bool isHited;
 
-    void OnTriggerStay(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if (Purple_Playermove.isSlashing && !isHited)
         {
@@ -17,12 +16,10 @@ public class Purple_AttackDetect : MonoBehaviour
                 if (Purple_Playermove.slashNum == 1)
                 {
                     PurplePattern.monsterHealth -= 16;
-                    hit.Play();
                 }
                 else if (Purple_Playermove.slashNum == 2)
                 {
                     PurplePattern.monsterHealth -= 30;
-                    hit.Play();
                 }
             }
             else if (col.gameObject.tag == "YackDamageBox")
@@ -31,12 +28,10 @@ public class Purple_AttackDetect : MonoBehaviour
                 if (Purple_Playermove.slashNum == 1)
                 {
                     PurplePattern.monsterHealth -= 40;
-                    hit.Play();
                 }
                 else if (Purple_Playermove.slashNum == 2)
                 {
                     PurplePattern.monsterHealth -= 50;
-                    hit.Play();
                 }
             }
 
@@ -48,12 +43,4 @@ public class Purple_AttackDetect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Purple_Playermove.isSlashing == false)
-        {
-            isHited = false;
-        }
-        
-    }
 }
