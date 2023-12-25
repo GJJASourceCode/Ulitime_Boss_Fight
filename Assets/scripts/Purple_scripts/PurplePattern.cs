@@ -14,14 +14,14 @@ public class PurplePattern : MonoBehaviour
     Rigidbody rigid;
     Vector3 currentVec;
     Vector3 backpos = new Vector3(0, 0.475f, 0);
-    bool area1, area2, lookAtPlayer, run, getback,zeropos;
+    bool area1, area2, lookAtPlayer, run, getback,zeropos, isBeforeFly;
     Quaternion rotGoal;
     // set varieties
 
     void Awake()
     {
-
-        monsterHealth = 10;
+        isBeforeFly = false;
+        monsterHealth = 500;
         area = new GameObject[2];
         area[0] = GameObject.Find("Claw_collider");
         area[1] = GameObject.Find("Head_collider");
@@ -46,7 +46,13 @@ public class PurplePattern : MonoBehaviour
         {
             if (area2)
             {
-                state = Random.Range(1, 4);
+                if(isBeforeFly){
+                    state = Random.Range(1, 3);
+                    isBeforeFly = false;
+                }
+                else{
+                    state = Random.Range(1, 4);
+                }
             }
             else
             {
@@ -63,11 +69,13 @@ public class PurplePattern : MonoBehaviour
     IEnumerator basic_attack()
     {
         isAttacking = true;
+        lookAtPlayer = true;
         anim.SetTrigger("basic attack");
         yield return new WaitForSeconds(0.7f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
         area[0].SetActive(true);
+        lookAtPlayer = false;
         yield return new WaitForSeconds(0.2f);
         area[0].SetActive(false);
         isAttacking = false;
@@ -78,11 +86,13 @@ public class PurplePattern : MonoBehaviour
     IEnumerator claw_attack()
     {
         isAttacking = true;
+        lookAtPlayer = true;
         anim.SetTrigger("claw attack");
         yield return new WaitForSeconds(0.7f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
         area[1].SetActive(true);
+        lookAtPlayer = false;
         yield return new WaitForSeconds(0.2f);
         area[1].SetActive(false);
         isAttacking = false;
@@ -92,6 +102,7 @@ public class PurplePattern : MonoBehaviour
     }
     IEnumerator fly_flame_attack()
     {
+        isBeforeFly = true;
         anim.SetTrigger("take off");
         yield return new WaitForSeconds(2.867f);
         //jumpAttackSound1.Play();
@@ -154,7 +165,8 @@ public class PurplePattern : MonoBehaviour
 
     void choosePattern()
     {
-        switch (state)
+        if(!isDeath){
+           switch (state)
         {
             case 0:
                 StartCoroutine("idle"); //calm state
@@ -177,7 +189,9 @@ public class PurplePattern : MonoBehaviour
                 break;
             default:
                 break;
+        } 
         }
+        
     }
 
     void OnTriggerStay(Collider col)
@@ -206,7 +220,19 @@ public class PurplePattern : MonoBehaviour
     }
     void Update()
     {
+        Vector3 zero = new Vector3(0f, 0f, 0f);
         Debug.Log(isDeath);
+        if(monsterHealth <= 0 && !isDeath)
+        {
+            state = 6;
+            anim.SetTrigger("Mdeath");
+            anim.SetInteger("Mdying",1);
+            StopCoroutine("fly_flame_attack");
+            getback = false;
+            isAttacking = false;
+            readyfire = false;
+            zeropos = false;
+        }
         if (area2 && state == 5)
         {
             StopCoroutine("trace");
@@ -216,14 +242,13 @@ public class PurplePattern : MonoBehaviour
         }
         //Debug.Log(run);
         Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        Vector3 zero = new Vector3(0f, 0f, 0f);
         if (run)
         {
             rigid.velocity = currentVec.normalized * 20.0f;
         }
         if (getback)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 10, 0.002f);
+            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 20, 0.005f);
             
 
         }
@@ -244,7 +269,7 @@ public class PurplePattern : MonoBehaviour
         {
             anim.SetInteger("walk", 1);
             rotGoal = Quaternion.LookRotation(dir.normalized);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, 0.008f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, 0.07f);
         }
         else
         {
@@ -264,7 +289,7 @@ public class PurplePattern : MonoBehaviour
             rigid.velocity = dir.normalized * 4.0f;
 
         }
-        if (state == 0 || state == 1 || state == 2 || state == 3)
+        if (state == 0 || state == 1 || state == 2 || state == 3 || state == 6)
         {
             rigid.velocity = zero * 4.0f;
         }

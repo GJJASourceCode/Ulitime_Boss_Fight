@@ -6,6 +6,7 @@ public class Purple_AttackDetect : MonoBehaviour
 {
     bool isHited;
     public AudioSource hit;
+
     void OnTriggerStay(Collider col)
     {
         if (Purple_Playermove.isSlashing && !isHited)
@@ -53,5 +54,6 @@ public class Purple_AttackDetect : MonoBehaviour
         {
             isHited = false;
         }
+        
     }
 }
