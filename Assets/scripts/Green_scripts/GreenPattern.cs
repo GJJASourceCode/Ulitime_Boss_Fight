@@ -10,10 +10,10 @@ public class GreenPattern : MonoBehaviour
     public static int state;
     Animator anim;
     GameObject[] area;
-    public GameObject player, victory, BackJumpPos;
+    public GameObject player, victory, BackJumpPos, FrontJumpPos, DustParticle;
     Rigidbody rigid;
-    Vector3 currentVec, BackJumpVec;
-    bool lookAtPlayer, run, isBackJump, isMove;
+    Vector3 currentVec, BackJumpVec, FrontJumpVec;
+    bool lookAtPlayer, run, isBackJump, isMove, isFrontJump;
     Quaternion rotGoal;
 
     int isRight;
@@ -26,8 +26,11 @@ public class GreenPattern : MonoBehaviour
         isAttacking = false;
         isDeath = false;
         isBackJump = false;
+        isFrontJump = false;
         monsterHealth = 1000;
         BackJumpPos = GameObject.Find("BackJumpPosition");
+        DustParticle = GameObject.Find("DustParticle");
+        FrontJumpPos = GameObject.Find("FrontJumpPosition");
         area = new GameObject[5];
         area[0] = GameObject.Find("Hand_collider");//손 공격범위
         area[1] = GameObject.Find("Head_collider");//머리 공격범위
@@ -39,6 +42,7 @@ public class GreenPattern : MonoBehaviour
         area[2].SetActive(false);
         area[3].SetActive(false);
         area[4].SetActive(false);
+        DustParticle.SetActive(false);
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
@@ -80,6 +84,17 @@ public class GreenPattern : MonoBehaviour
         state = 0;
         choosePattern();
     }
+    IEnumerator FrontJump()
+    {
+        anim.SetTrigger("BackJump");
+        FrontJumpVec = FrontJumpPos.transform.position;
+        yield return new WaitForSeconds(0.6f);
+        isFrontJump = true;
+        yield return new WaitForSeconds(0.4f);
+        isFrontJump = false;
+        state = 0;
+        choosePattern();
+    }
     IEnumerator move()
     {
         yield return new WaitForSeconds(2f);
@@ -100,14 +115,12 @@ public class GreenPattern : MonoBehaviour
         run = true;
         lookAtPlayer = true;
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(0.25f);
-        currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         lookAtPlayer = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(1f);
         run = false;
-        area[3].SetActive(false);
+        area[4].SetActive(false);
         isAttacking = false;
         anim.SetInteger("run", 0);
         yield return new WaitForSeconds(0.5f);
@@ -132,13 +145,14 @@ public class GreenPattern : MonoBehaviour
     }
     IEnumerator claw()
     {
-        lookAtPlayer = false;
         anim.SetTrigger("claw");
         isAttacking = true;
         yield return new WaitForSeconds(0.5f);
+        lookAtPlayer = false;
+        yield return new WaitForSeconds(0.2f);
         Debug.Log("지금");
         area[0].SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         isAttacking = false;
         area[0].SetActive(false);
         yield return new WaitForSeconds(1f);
@@ -154,24 +168,31 @@ public class GreenPattern : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Debug.Log("지금");
         area[3].SetActive(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         isAttacking = false;
         area[3].SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         lookAtPlayer = true;
         state = 0;
         choosePattern();
     }
     IEnumerator downAttack()
     {
-        lookAtPlayer = false;
         anim.SetTrigger("downAttack");
         isAttacking = true;
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.05f);
+        DustParticle.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        lookAtPlayer = false;
+        yield return new WaitForSeconds(0.1f);
+        //DustParticle.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
         area[2].SetActive(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         area[2].SetActive(false);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.25f);
+        DustParticle.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
         isAttacking = false;
         lookAtPlayer = true;
         state = 0;
@@ -188,8 +209,12 @@ public class GreenPattern : MonoBehaviour
                     StartCoroutine("state_0");//일시정지
                     break;
                 case 1:
-                    // 뒤로 회피
-                    StartCoroutine("BackJump");
+                    if(Green_Area_Detect.inCenter){
+                        StartCoroutine("BackJump");
+                    }
+                    else{
+                        StartCoroutine("FrontJump");
+                    }
                     break;
                 case 2:
                     //attack2 물기
@@ -242,10 +267,15 @@ public class GreenPattern : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, BackJumpVec, 0.02f);
         }
+        if (isFrontJump)
+        {
+            transform.position = Vector3.Lerp(transform.position, FrontJumpVec, 0.02f);
+        }
         if (monsterHealth <= 0 && !isDeath)
         {
             isDeath = true;
-            state = 8;
+            lookAtPlayer = false;
+            state = 9;
             monsterHealth = 0;
             anim.SetTrigger("death");
             anim.SetInteger("dying", 1);

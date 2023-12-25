@@ -5,6 +5,7 @@ using UnityEngine;
 public class Green_Area_Detect : MonoBehaviour
 {
     public static int whichArea;
+    public static bool inCenter;
     bool area1, area2, area3;
     public GameObject boss;
     // Start is called before the first frame update
@@ -27,6 +28,9 @@ public class Green_Area_Detect : MonoBehaviour
         {
             area3 = true;
         }
+        if (col.gameObject.name=="CenterArea"){
+            inCenter = true;
+        }
     }
     void OnTriggerExit(Collider col)
     {
@@ -41,6 +45,9 @@ public class Green_Area_Detect : MonoBehaviour
         if (col.gameObject.name == "Ar3")
         {
             area3 = false;
+        }
+        if (col.gameObject.name=="CenterArea"){
+            inCenter = false;
         }
     }
     // Update is called once per frame

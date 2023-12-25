@@ -27,6 +27,9 @@ public class PAttackDetect : MonoBehaviour
                     case 5:
                         Playermove.health -= 45;
                         break;
+                    case 8:
+                        Playermove.health -= 45;
+                        break;
                     default:
                         break;
                 }
