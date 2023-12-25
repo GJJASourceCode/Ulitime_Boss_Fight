@@ -22,9 +22,13 @@ public class PurplePattern : MonoBehaviour
     {
         isBeforeFly = false;
         monsterHealth = 500;
-        area = new GameObject[2];
-        area[0] = GameObject.Find("Claw_collider");
-        area[1] = GameObject.Find("Head_collider");
+        area = new GameObject[3];
+        area[0] = GameObject.Find("Head_collider");
+        area[1] = GameObject.Find("L_Claw_collider");
+        area[2] = GameObject.Find("R_Claw_collider");
+        area[0].SetActive(false);
+        area[1].SetActive(false);
+        area[2].SetActive(false);
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigid = GetComponent<Rigidbody>();
@@ -70,12 +74,14 @@ public class PurplePattern : MonoBehaviour
     {
         isAttacking = true;
         lookAtPlayer = true;
+        area[0].SetActive(true);
         anim.SetTrigger("basic attack");
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.1f);
+        lookAtPlayer = false;
+        yield return new WaitForSeconds(0.6f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
-        area[0].SetActive(true);
-        lookAtPlayer = false;
+        
         yield return new WaitForSeconds(0.2f);
         area[0].SetActive(false);
         isAttacking = false;
@@ -87,14 +93,17 @@ public class PurplePattern : MonoBehaviour
     {
         isAttacking = true;
         lookAtPlayer = true;
+        area[1].SetActive(true);
+        area[2].SetActive(true);
         anim.SetTrigger("claw attack");
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.1f);
+        lookAtPlayer = false;
+        yield return new WaitForSeconds(0.6f);
         //attack1Sound.Play();
         yield return new WaitForSeconds(0.1f);
-        area[1].SetActive(true);
-        lookAtPlayer = false;
         yield return new WaitForSeconds(0.2f);
         area[1].SetActive(false);
+        area[2].SetActive(false);
         isAttacking = false;
         yield return new WaitForSeconds(0.5f);
         state = 0;
@@ -111,6 +120,10 @@ public class PurplePattern : MonoBehaviour
         isAttacking = true;
         readyfire = true;
         yield return new WaitForSeconds(3.267f);
+        readyfire = false;
+        readyfire = true;
+        yield return new WaitForSeconds(3.267f);
+        readyfire = false;        
         zeropos = true;
         //area[2].SetActive(true);
         //jumpAttackSound2.Play();

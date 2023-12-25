@@ -12,7 +12,7 @@ public class Purple_Breath_Controller : MonoBehaviour
         {
             
             Instantiate(prefab, transform.position, Quaternion.identity);
-            Destroy(prefab,3f);
+            Destroy(prefab,30f);
 
         }
     }

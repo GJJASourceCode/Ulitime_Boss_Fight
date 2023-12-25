@@ -17,7 +17,7 @@ public class Purple_PAttackDetect : MonoBehaviour
                 switch (PurplePattern.state)
                 {
                     case 1:
-                        Purple_Playermove.health -= 26;
+                        Purple_Playermove.health -= 18;
                         break;
                     case 2:
                         Purple_Playermove.health -= 10;
