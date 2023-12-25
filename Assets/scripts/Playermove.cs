@@ -6,7 +6,7 @@ public class Playermove : MonoBehaviour
 {
     float bbCurrentTime, bbTime;
     public AudioSource slash1, slash2, bossBattleBGM, defeatBGM, victoryBGM;
-    GameObject body;
+    GameObject body, sword;
     public GameObject deathtext;
     public static int slashNum, health;
     Animator anim;
@@ -22,13 +22,15 @@ public class Playermove : MonoBehaviour
         //bossBattleBGM.Play();
         bbTime = 130f;
         body = GameObject.Find("Armature");
+        sword = GameObject.Find("SwordCollider");
+        sword.SetActive(false);
         pRigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         pSpeed = 4.0f;
         slashCurrentTime = 0f;
         rollCurrentTime = 0f;
         slashTime = 0f;
-        rollTime = 0.9f;
+        rollTime = 0.8f;
         isRoll = false;
         isSlashing = false;
         isHited = false;
@@ -39,7 +41,10 @@ public class Playermove : MonoBehaviour
     }
     void Update()
     {
-        
+        if (isSlashing == false)
+        {
+            Green_AttackDetect.isHited = false;
+        }
         bbCurrentTime += Time.deltaTime;
         if(bbCurrentTime>bbTime){
             bbCurrentTime =0f;
@@ -53,7 +58,6 @@ public class Playermove : MonoBehaviour
         if(GreenPattern.isDeath&&!isEnd){
             isEnd = true;
             bossBattleBGM.Stop();
-            Debug.Log("승리");
             victoryBGM.Play();
         }
         if(health<=0&&!isDeath){
@@ -73,6 +77,7 @@ public class Playermove : MonoBehaviour
         if (slashCurrentTime > slashTime)
         {
             isSlashing = false;
+            sword.SetActive(false);
         }
         if (rollCurrentTime > 0.3f)
         {
@@ -115,22 +120,24 @@ public class Playermove : MonoBehaviour
                 slashTime = 1.2f / 1.5f;
                 anim.SetTrigger("slashing1");
                 slash1.Play();
+                sword.SetActive(true);
             }
             else if (slashNum == 2)
             {
-                slashTime = 1.8f / 1.5f;
+                slashTime = 1.8f / 2.25f;
                 anim.SetTrigger("slashing2");
                 slash2.Play();
+                sword.SetActive(true);
             }
         }
         else if (Input.GetKeyDown("left shift") && !isSlashing && canRoll && !isDeath)
         {
+            anim.SetTrigger("roll");
             rollCurrentTime = 0;
             isRoll = true;
             rollEnd = false;
             canRoll = false;
             pSpeed = 10f;
-            anim.SetTrigger("roll");
         }
         if (Mathf.Abs(xInput) > Mathf.Epsilon || Mathf.Abs(zInput) > Mathf.Epsilon)
         {

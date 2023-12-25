@@ -13,6 +13,6 @@ public class phealthtext : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthTxt.text = Purple_Playermove.health.ToString();
+        healthTxt.text = Playermove.health.ToString();
     }
 }

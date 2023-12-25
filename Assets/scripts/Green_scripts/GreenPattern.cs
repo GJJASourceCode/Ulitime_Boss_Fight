@@ -150,7 +150,6 @@ public class GreenPattern : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         lookAtPlayer = false;
         yield return new WaitForSeconds(0.2f);
-        Debug.Log("지금");
         area[0].SetActive(true);
         yield return new WaitForSeconds(0.2f);
         isAttacking = false;
@@ -200,7 +199,6 @@ public class GreenPattern : MonoBehaviour
     }
     void choosePattern()
     {
-        Debug.Log("츄즈");
         if (!isDeath)
         {
             switch (state)
@@ -218,21 +216,17 @@ public class GreenPattern : MonoBehaviour
                     break;
                 case 2:
                     //attack2 물기
-                    Debug.Log("물기");
                     StartCoroutine("bite");
                     break;
                 case 3:
                     //박치기
-                    Debug.Log("박치기");
                     StartCoroutine("horn");
                     break;
                 case 4:
                     //한번 패기
-                    Debug.Log("한번패기");
                     StartCoroutine("claw");
                     break;
                 case 5:
-                    Debug.Log("내려찍기");
                     StartCoroutine("downAttack");
                     break;
                 case 6:
@@ -262,7 +256,6 @@ public class GreenPattern : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(state);
         if (isBackJump)
         {
             transform.position = Vector3.Lerp(transform.position, BackJumpVec, 0.02f);
@@ -284,6 +277,7 @@ public class GreenPattern : MonoBehaviour
         if (isDeath)
         {
             monsterHealth = 0;
+            lookAtPlayer = false;
         }
         Vector3 dir = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         Vector3 zero = new Vector3(0f, 0f, 0f);
