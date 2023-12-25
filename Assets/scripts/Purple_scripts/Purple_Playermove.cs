@@ -76,10 +76,13 @@ public class Purple_Playermove : MonoBehaviour
         }
         if (PurplePattern.isDeath && !isEnd)
         {
+            anim.SetTrigger("Mdeath");
+            
             isEnd = true;
             bossBattleBGM.Stop();
             Debug.Log("승리");
             wintext.SetActive(true);
+            anim.SetInteger("Mdying", 1);
             victoryBGM.Play();
         }
         if (health <= 0 && !isDeath)

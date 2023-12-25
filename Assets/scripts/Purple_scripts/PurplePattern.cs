@@ -21,7 +21,7 @@ public class PurplePattern : MonoBehaviour
     void Awake()
     {
 
-        monsterHealth = 500;
+        monsterHealth = 10;
         area = new GameObject[2];
         area[0] = GameObject.Find("Claw_collider");
         area[1] = GameObject.Find("Head_collider");
@@ -122,15 +122,17 @@ public class PurplePattern : MonoBehaviour
     }
     IEnumerator trace()
     {
-        Debug.Log("trace작동");
+        //Debug.Log("trace작동");
         anim.SetTrigger("scream");
         //howlingSound.Play();
+        //Debug.Log(run);
+        run = false;
         yield return new WaitForSeconds(1.4f);
         anim.SetInteger("run", 1);
         //dashSound.Play();
         //area[3].SetActive(true);
-        run = true;
         lookAtPlayer = true;
+        run = true;
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
         yield return new WaitForSeconds(0.25f);
         currentVec = new Vector3(player.transform.position.x - transform.position.x, 0f, player.transform.position.z - transform.position.z);
@@ -204,6 +206,7 @@ public class PurplePattern : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log(isDeath);
         if (area2 && state == 5)
         {
             StopCoroutine("trace");
@@ -266,6 +269,14 @@ public class PurplePattern : MonoBehaviour
             rigid.velocity = zero * 4.0f;
         }
         //Debug.Log(zeropos);
+        if (monsterHealth <= 0 && !isDeath)
+        {
+            
+            isDeath = true;
+            monsterHealth = 0;
+            
+            
+        }
     }
 
 }
