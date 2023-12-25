@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5048201084376481539}
   m_Layer: 0
   m_Name: Claw_collider
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048201084376481541}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 50, y: 50, z: 50}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 4524388206924951387}
   m_Layer: 0
   m_Name: Claw_collider
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -792,7 +792,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5637148202846484393}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 50, y: 50, z: 50}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 5782796269373173712}
   m_Layer: 0
   m_Name: Head_collider
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2671,7 +2671,7 @@ GameObject:
   - component: {fileID: 8622186917697935627}
   m_Layer: 0
   m_Name: Claw_collider
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2975,7 +2975,7 @@ GameObject:
   - component: {fileID: 8699566587343565863}
   m_Layer: 0
   m_Name: Claw_collider
-  m_TagString: Untagged
+  m_TagString: AttackRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
