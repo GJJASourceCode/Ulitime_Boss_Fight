@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Green.unity
     guid: 5e6c278702be9254a87aaf656d4d5b4f
+  - enabled: 1
+    path: Assets/Scenes/PurpleZero.unity
+    guid: a87f0e92c3d9f594c85b56dbd507de30
+  - enabled: 1
+    path: Assets/Scenes/Select.unity
+    guid: dfca99ca689f182419136b4aa01397c1
   m_configObjects: {}

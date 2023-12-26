@@ -14,16 +14,33 @@ public class SceneManagers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey (KeyCode.Return)){
-            if(Playermove.isEnd){
-                SceneManager.LoadScene("Title");
+        Debug.Log(selectScene.isSelecting);
+        if(!selectScene.isSelecting){
+            if((Playermove.isEnd && Input.GetKey(KeyCode.Return))||(Purple_Playermove.isEnd && Input.GetKey(KeyCode.Return))){
                 Playermove.isEnd = false;
+                Purple_Playermove.isEnd = false;
+                SceneManager.LoadScene("Title");
             }
-            else{
-                SceneManager.LoadScene("Green");
+            else {
+                if(Input.GetKey(KeyCode.Return)){
+                    SceneManager.LoadScene("Select");
+                }
             }
-
-
         }
+        else{
+            if(Input.GetKey(KeyCode.Alpha1)){
+                Debug.Log("1번");
+                selectScene.isSelecting = false;
+                SceneManager.LoadScene("Green");
+                
+            }
+            if(Input.GetKey(KeyCode.Alpha2)){
+                selectScene.isSelecting = false;
+                SceneManager.LoadScene("PurpleZero");
+            }
+        }
+            
+
+
     }
 }

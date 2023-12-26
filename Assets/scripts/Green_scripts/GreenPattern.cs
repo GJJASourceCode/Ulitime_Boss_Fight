@@ -256,11 +256,11 @@ public class GreenPattern : MonoBehaviour
     {
         if (isBackJump)
         {
-            transform.position = Vector3.Lerp(transform.position, BackJumpVec, 0.02f);
+            transform.position = Vector3.Lerp(transform.position, BackJumpVec, 0.1f);
         }
         if (isFrontJump)
         {
-            transform.position = Vector3.Lerp(transform.position, FrontJumpVec, 0.02f);
+            transform.position = Vector3.Lerp(transform.position, FrontJumpVec, 0.1f);
         }
         if (monsterHealth <= 0 && !isDeath)
         {
@@ -326,7 +326,7 @@ public class GreenPattern : MonoBehaviour
         if (lookAtPlayer)
         {
             rotGoal = Quaternion.LookRotation(dir.normalized);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, 0.02f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, 0.08f);
         }
         else
         {

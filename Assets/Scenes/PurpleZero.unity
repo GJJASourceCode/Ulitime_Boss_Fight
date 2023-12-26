@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4079,6 +4079,7 @@ GameObject:
   - component: {fileID: 2108677208}
   - component: {fileID: 2108677207}
   - component: {fileID: 2108677210}
+  - component: {fileID: 2108677211}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4187,6 +4188,18 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2108677211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108677206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dd4f4306119e54cbc65ca1af256499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2133007592
 GameObject:
   m_ObjectHideFlags: 0
@@ -13320,7 +13333,6 @@ GameObject:
   - component: {fileID: 8132414172804738627}
   - component: {fileID: 8132414172804738628}
   - component: {fileID: 8132414172804738632}
-  - component: {fileID: 8132414172804738633}
   - component: {fileID: 418996347}
   m_Layer: 0
   m_Name: Player
@@ -13348,18 +13360,6 @@ MonoBehaviour:
   victoryBGM: {fileID: 1385871240}
   deathtext: {fileID: 1901340976}
   wintext: {fileID: 103516627}
---- !u!114 &8132414172804738633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132414172804738630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08dee28273f78b44b8594203bc6ae9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &8132414172818042639
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
