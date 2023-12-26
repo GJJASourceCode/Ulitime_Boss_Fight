@@ -183,9 +183,7 @@ public class GreenPattern : MonoBehaviour
         DustParticle.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         lookAtPlayer = false;
-        yield return new WaitForSeconds(0.1f);
-        //DustParticle.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         area[2].SetActive(true);
         yield return new WaitForSeconds(0.2f);
         area[2].SetActive(false);
