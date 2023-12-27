@@ -261,7 +261,7 @@ public class PurplePattern : MonoBehaviour
         }
         if (getback)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 20, 0.005f);
+            transform.position = Vector3.Lerp(transform.position, transform.position - transform.forward * 20, 0.01f);
             
 
         }
